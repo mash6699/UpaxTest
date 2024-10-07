@@ -1,3 +1,12 @@
 <resources>
-    <string name="app_name">Upax</string>
+    <string name="app_name">Pockédex</string>
+    <string name="network_error">No tienes conexión a internet</string>
+    <string name="back_action">Back</string>
+    <string name="detail">Detail</string>
+    <string name="number">No. %1$s</string>
+    <string name="retry">Reintentar</string>
+    <string name="height">Height</string>
+    <string name="weight">Weight</string>
+    <string name="types">Types</string>
+
 </resources>

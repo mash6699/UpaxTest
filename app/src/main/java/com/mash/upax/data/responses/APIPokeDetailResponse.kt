@@ -1,4 +1,4 @@
-package com.mash.upax.model
+package com.mash.upax.data.responses
 
 import com.squareup.moshi.Json
 
@@ -10,7 +10,7 @@ data class APIPokeDetailResponse(
     val forms: List<Species>,
     @Json(name = "game_indices")
     val gameIndices: List<GameIndex>,
-    val height: Long,
+    val height: Int,
     @Json(name = "held_items")
     val heldItems: List<HeldItem>,
     val id: Long,
@@ -29,7 +29,7 @@ data class APIPokeDetailResponse(
     val sprites: Sprites,
     val stats: List<Stat>,
     val types: List<Type>,
-    val weight: Long
+    val weight: Int
 )
 
 data class Ability (
@@ -124,7 +124,7 @@ data class Other (
 
 data class Sprites (
     @Json(name = "back_default")
-    val backDefault: String,
+    val backDefault: String?,
     @Json(name = "back_female")
     val backFemale: Any? = null,
     @Json(name = "back_shiny")
@@ -152,17 +152,17 @@ data class GenerationI (
 
 data class RedBlue (
     @Json(name = "back_default")
-    val backDefault: String,
+    val backDefault: String?,
     @Json(name = "back_gray")
-    val backGray: String,
+    val backGray: String?,
     @Json(name = "back_transparent")
-    val backTransparent: String,
+    val backTransparent: String?,
     @Json(name = "front_default")
-    val frontDefault: String,
+    val frontDefault: String?,
     @Json(name = "front_gray")
-    val frontGray: String,
+    val frontGray: String?,
     @Json(name = "front_transparent")
-    val frontTransparent: String
+    val frontTransparent: String?
 )
 
 data class GenerationIi (
@@ -173,7 +173,7 @@ data class GenerationIi (
 
 data class Crystal (
     @Json(name = "back_default")
-    val backDefault: String,
+    val backDefault: String?,
     @Json(name = "back_shiny")
     val backShiny: String,
     @Json(name = "back_shiny_transparent")
@@ -192,7 +192,7 @@ data class Crystal (
 
 data class Gold (
     @Json(name = "back_default")
-    val backDefault: String,
+    val backDefault: String?,
     @Json(name = "back_shiny")
     val backShiny: String,
     @Json(name = "front_default")

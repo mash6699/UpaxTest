@@ -41,11 +41,11 @@ android {
     productFlavors {
         create("development") {
             dimension = "version"
-            buildConfigField("String", "API_URL", "\"https://pokeapi.co/\"")
+            buildConfigField("String", "API_URL", "\"https://pokeapi.co/api/v2/\"")
         }
         create("production") {
             dimension = "version"
-            buildConfigField("String", "API_URL", "\"https://pokeapi.co/\"")
+            buildConfigField("String", "API_URL", "\"https://pokeapi.co/api/v2/\"")
         }
     }
     compileOptions {
@@ -75,6 +75,7 @@ dependencies {
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.navigation.compose)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
@@ -85,14 +86,21 @@ dependencies {
     implementation(libs.hilt.navigation.compose)
     ksp(libs.hilt.android.compiler)
 
-    implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:1.0.0")
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation("com.squareup.retrofit2:converter-moshi:2.10.0")
-    implementation("com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.12")
-    implementation("com.squareup.moshi:moshi-kotlin:1.15.1")
-    implementation("io.coil-kt:coil-compose:2.4.0")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
+    implementation(libs.squareup.retrofit2)
+    implementation(libs.squareup.retrofit2.converter.moshi)
 
+    implementation(libs.squareup.okhttp3.loging.interceptor)
+    implementation(libs.squareup.moshi.kotlin)
+
+    implementation(libs.androidx.paging.runtime.ktx)
+    implementation(libs.androidx.paging.compose)
+
+    implementation(libs.bundles.room)
+    ksp(libs.room.compiler)
+
+    implementation(libs.io.coil.kt)
+
+    implementation(libs.androidx.core.splashscreen)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

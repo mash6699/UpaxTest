@@ -1,7 +1,8 @@
 package com.mash.upax.di
 
 import com.mash.upax.BuildConfig
-import com.mash.upax.network.APIService
+import com.mash.upax.data.network.APIService
+import com.mash.upax.data.network.ErrorInterceptor
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
@@ -36,6 +37,7 @@ object NetworkModule {
                     level = HttpLoggingInterceptor.Level.BODY
                 }
             )
+            addInterceptor(ErrorInterceptor())
         }.readTimeout(60, TimeUnit.SECONDS)
             .connectTimeout(60, TimeUnit.SECONDS)
             .build()
